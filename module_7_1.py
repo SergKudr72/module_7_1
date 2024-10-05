@@ -26,12 +26,23 @@ class Shop(Product):
         list_products = self.get_products()
         print(f'{list_products}')
         for product in products:
-            if str(product) in list_products:
-                print (f'Продукт {product} уже есть в магазине')
-            else:
+            # if str(product) in list_products:
+            #     print (f'Продукт {product} уже есть в магазине')
+            # else:
+            #     file = open(self.__file_name, 'a')
+            #     file.write(f'{product}\n')
+            #     file.close()
+    # Проверка преподавателя и рекомендации:
+# Сделали хорошо, но только в add открытие файла переместите до цикла, а закрытие - после.
+# Не слишком эффективно по операциям на каждой итерации открывать-закрывать файл. Это недешевое дело,
+# если масштабировать.
+    # Работа над ошибками:
+            if str(product) not in list_products:
                 file = open(self.__file_name, 'a')
                 file.write(f'{product}\n')
                 file.close()
+            else:
+                print (f'Продукт {product} уже есть в магазине')
 
 
 s1 = Shop()
